@@ -1,5 +1,5 @@
 body {
-    font: 36px "Futura", Futura, sans-serif;
+    font: 36px Futura, Arial, sans-serif;
     margin: 20px;
   }
   
@@ -19,6 +19,8 @@ body {
   }
 
   .border {
+      display: inline-block;
+      font-size: 20px;
     border-radius: 25px;
     border: 2px solid #c789f6;
     padding: 20px;
@@ -31,16 +33,20 @@ body {
 
   .hmm {
     font-size: 30px;
+  /*  font-family: 'New Century Schoolbook',  serif;*/
     text-align: left;
     margin-left: 50px;
     margin-bottom: 50px;
   }
-
- /* .letter {
-    font: 36px "Futura", Futura, sans-serif;
-    margin: 20px;
-  }*/
     
+
+
+
+  .giganticbox{
+      width: 1000;
+      height: 1000;
+      border: 5px solid
+  } 
   
   .letter {
     background: rgb(255, 255, 255);
@@ -49,16 +55,92 @@ body {
     font-size: 24px;
     font-weight: bold;
     line-height: 50px;
-    height: 50px;
+    height: 60px;
     margin-right: -3px;
     margin-top: -3px;
     margin-left: 10px;
     margin-bottom: 10px;
     padding: 0;
     text-align: center;
-    width: 50px;
+    width: 60px;
+  }
+
+  .mainletter{
+        background: rgb(118, 245, 165);
+        border: 5px solid rgba(91, 135, 231, 0.756);
+        float: left;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 50px;
+        height: 80px;
+        margin-right: -3px;
+        margin-top: -3px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+        text-align: center;
+        width: 80px;
+       /* border-radius: 50%;*/
+      
+  }
+
+  .hexagon {
+    font-size: 24px;
+    font-weight: bold;
+    height: 100px;
+    width: 60px;
+    background: rgb(118, 245, 165);
+    position:relative;
+    left:25px;
+    box-sizing: border-box ;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+  }
+  .hexagon::before, .hexagon::after {
+    content:"";
+    position: absolute;
+    height: 0;
+    width: 0; 
+    top:0;
+    /* half height */
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent; 
+  }
+  .hexagon::before {
+    left:-25px;
+    border-right:25px solid rgb(118, 245, 165);
+  }
+  .hexagon::after {
+    right:-25px;
+    border-left:25px solid rgb(118, 245, 165);
+  }
+
+
+
+  .hex1::before {
+    
+    content: "\2B22";
+    color: orange;
+    font-size:135px;
   }
   
+  .hex2::before {
+    font-size: 24px;
+    font-weight: bold;
+    content: "\2B22";
+    display:block;
+    color: rgb(97, 174, 243);
+    font-size:135px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+ 
+
+
   .square:focus {
     outline: none;
   }
