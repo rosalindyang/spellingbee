@@ -49,7 +49,8 @@ const wordlist = ['telepathy',
 class Letter1 extends React.Component{
     render(){
         return (
-            <button className='mainletter' onClick={this.props.onClick}>
+            <button className='letter main' 
+            onClick={this.props.onClick}>
             {this.props.value}
             </button>
           );
@@ -60,7 +61,7 @@ class Letter extends React.Component {
     render() {
       return (
           
-        <button className='letter' onClick={this.props.onClick}>
+        <button className='hexagon' onClick={this.props.onClick}>
         {this.props.value}
         </button>
       );
@@ -86,10 +87,15 @@ class Letter extends React.Component {
         word:this.state.word + i});
     }
   
+    handleKey(i){
+        this.setState({
+        word:this.state.word + i});
+    }
 
     renderLetter(i) {
         if(i == letter){
             return <Letter1 value={i}
+            //onkeypress={(e) => this.handleKey(e)}
             onClick={() => this.handleClick(i)}/>
         }
         else{
@@ -98,13 +104,13 @@ class Letter extends React.Component {
       }
 
       enter(i) {
-        return <Letter value={i} 
+        return <Letter1 value={i} 
         onClick={() => this.enter1()}/>;
       }
 
 
       delete(i) {
-        return <Letter value={i} 
+        return <Letter1 value={i} 
         onClick={() => this.delete1()}/>;
       }
 
@@ -149,29 +155,46 @@ class Letter extends React.Component {
   
       return (
         <div>
+
+<div id="wrapper">
+
+         <div id="left">
+          <div className="hex-col">
+            {this.renderLetter('a')}
+            {this.renderLetter('e')}
+          </div>
+
+          <div className="board-row">
+            {this.renderLetter('h')}
+            {this.renderLetter('Y')}
+            {this.renderLetter('l')}
+          </div>
+          
+          <div className="board-row">
+            {this.renderLetter('t')}
+            {this.renderLetter('p')}
+          </div>
+
+          
+         
+
+
+
+          <div>{this.enter('enter')}</div>
+          <div> {this.delete('delete')}</div>
+          <div className="hex2">s</div>
+        </div>
+
+
+        <div id="right">
+            <div className ='border'>
             <div className="hmm">{test}</div>
           <div className="status">{mess}</div>
           <div className="status">{current}</div>
           <div className="status">{list}</div>
-          <div className="border">{lunch}</div>
-
-          <div className="board-row">
-
-
-          </div>
-          <div className="board-row">
-            {this.renderLetter('y')}
-            {this.renderLetter('a')}
-            {this.renderLetter('e')}
-            {this.renderLetter('h')}
-            {this.renderLetter('l')}
-            {this.renderLetter('p')}
-            {this.renderLetter('t')}
-            {this.enter('enter')}
-            {this.delete('delete')}
-          </div>
-          <div className="hex2"></div>
-          
+            </div>
+            </div>   
+        </div>
         </div>
       );
     }
@@ -191,6 +214,7 @@ class Letter extends React.Component {
             <div>{/* status */}</div>
             <ol>{/* TODO */}</ol>
           </div>
+
         </div>
        
         

@@ -12,6 +12,8 @@ body {
     content: "";
     display: table;
   }
+
+
   
   .status {
     margin-left: 50px;
@@ -25,7 +27,7 @@ body {
     border: 2px solid #c789f6;
     padding: 20px;
     width: 400px;
-    height: 150px;
+    height: 1000px;
   /*  position:absolute; left:600px; top:100px*/
   }
 
@@ -65,38 +67,29 @@ body {
     width: 60px;
   }
 
-  .mainletter{
-        background: rgb(118, 245, 165);
-        border: 5px solid rgba(91, 135, 231, 0.756);
-        float: left;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 50px;
-        height: 80px;
-        margin-right: -3px;
-        margin-top: -3px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        padding: 0;
-        text-align: center;
-        width: 80px;
-       /* border-radius: 50%;*/
+  .letter.main{
+    background: rgb(204, 253, 119);
       
+  }
+
+  .hex-col{
+      margin-top: 50px;
   }
 
   .hexagon {
     font-size: 24px;
     font-weight: bold;
+    border:0;
     height: 100px;
     width: 60px;
-    background: rgb(118, 245, 165);
+    background: rgb(131, 190, 249);
     position:relative;
     left:25px;
     box-sizing: border-box ;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   .hexagon::before, .hexagon::after {
     content:"";
@@ -110,11 +103,11 @@ body {
   }
   .hexagon::before {
     left:-25px;
-    border-right:25px solid rgb(118, 245, 165);
+    border-right:25px solid rgb(131, 190, 249);
   }
   .hexagon::after {
     right:-25px;
-    border-left:25px solid rgb(118, 245, 165);
+    border-left:25px solid rgb(131, 190, 249);
   }
 
 
@@ -123,12 +116,15 @@ body {
     
     content: "\2B22";
     color: orange;
-    font-size:135px;
+    font-size:35px;
   }
   
   .hex2::before {
     font-size: 24px;
     font-weight: bold;
+    
+ 
+
     content: "\2B22";
     display:block;
     color: rgb(97, 174, 243);
@@ -156,5 +152,18 @@ body {
   
   .game-info {
     margin-left: 50px;
+  }
+
+
+  #wrapper {
+    display: flex;
+  }
+  
+  #left {
+    flex: 0 0 65%;
+  }
+  
+  #right {
+    flex: 1;
   }
   
