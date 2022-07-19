@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import raw from './spellingbeewordList.csv';
+
+
+fetch(raw)
+
+        .then(t => t.text()).then(text => {
+            console.log('text', text)
+        })
+
+
+    
 
 
 const list = [];
@@ -57,6 +68,17 @@ class Letter1 extends React.Component{
     }
 }
 
+class Letter2 extends React.Component{
+    render(){
+        return (
+            <button className='hexagon middle' 
+            onClick={this.props.onClick}>
+            {this.props.value}
+            </button>
+          );
+    }
+}
+
 class Letter extends React.Component {
     render() {
       return (
@@ -75,12 +97,13 @@ class Letter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            word : "",
-            message: "",
-            count : 0
+            word : "  ",
+            message: "SPELLING BEEEEEEEEE",
+            count : 0,
+            score:0
         };
     }
-
+   
 
     handleClick(i){
         this.setState({
@@ -93,9 +116,10 @@ class Letter extends React.Component {
     }
 
     renderLetter(i) {
+        
         if(i == letter){
-            return <Letter1 value={i}
-            //onkeypress={(e) => this.handleKey(e)}
+            return <Letter2 value={i}
+            
             onClick={() => this.handleClick(i)}/>
         }
         else{
@@ -105,7 +129,8 @@ class Letter extends React.Component {
 
       enter(i) {
         return <Letter1 value={i} 
-        onClick={() => this.enter1()}/>;
+        onClick={() => this.enter1()}
+     />;
       }
 
 
@@ -116,26 +141,31 @@ class Letter extends React.Component {
 
       enter1(){
         console.log(this.state.word)
-       
-        if(this.state.word.length < 4){
+       const wordd = this.state.word.slice(2)
+        if(wordd.length < 4){
             this.setState({message:"needs more letters :/"})
         }
-        else if(!this.state.word.includes(letter)){
-            this.setState({message:" missing letter :("})
+        else if(!wordd.includes(letter)){
+            this.setState({message:" missing center letter :("})
         }
-        else if(!wordlist.includes(this.state.word)){
+        else if(!wordlist.includes(wordd)){
             this.setState({message:"not a word ......"})
         }
+        else if(list.includes(wordd + '\n')){
+            this.setState({message:"already found :P"})
+        }
+
 
         else {
-            this.setState({message: 'yasss',
-        count: this.state.count + 1})
-            list.push(this.state.word + '\n')
+            this.setState({message: 'yasss :))',
+        count: this.state.count + 1,
+    score: this.state.score + wordd.length})
+            list.push(wordd + '\n')
           
         }
     
         console.log(list)
-        this.setState({word: ''});
+        this.setState({word: '  '});
     }
 
 
@@ -151,6 +181,7 @@ class Letter extends React.Component {
         const mess = this.state.message;
         const lunch = "you have found " + this.state.count + " words"
         const test = 'horrendous .... '
+        const score = 'score: ' + this.state.score
         
   
       return (
@@ -159,18 +190,21 @@ class Letter extends React.Component {
 <div id="wrapper">
 
          <div id="left">
-          <div className="hex-col">
+         <div className="hmm">{current}</div>
+          <div id="first">
+              <div id ='box'></div>
             {this.renderLetter('a')}
             {this.renderLetter('e')}
           </div>
 
-          <div className="board-row">
+          <div id="second">
             {this.renderLetter('h')}
-            {this.renderLetter('Y')}
+            {this.renderLetter('y')}
             {this.renderLetter('l')}
           </div>
           
-          <div className="board-row">
+          <div id = "third">
+          <div id ='box'></div>
             {this.renderLetter('t')}
             {this.renderLetter('p')}
           </div>
@@ -179,18 +213,21 @@ class Letter extends React.Component {
          
 
 
-
+          <div id = "fourth">
           <div>{this.enter('enter')}</div>
           <div> {this.delete('delete')}</div>
-          <div className="hex2">s</div>
+          </div>
+        { /* <div className="hex2">s</div>*/}
+       
         </div>
 
 
         <div id="right">
             <div className ='border'>
-            <div className="hmm">{test}</div>
+            <div className="status">{lunch}</div>
           <div className="status">{mess}</div>
-          <div className="status">{current}</div>
+          <div className="status">{score}</div>
+      { /*  <div className="status">{current}</div>*/}
           <div className="status">{list}</div>
             </div>
             </div>   
@@ -203,6 +240,7 @@ class Letter extends React.Component {
   class Game extends React.Component {
     render() {
       return (
+          
         <div className="game">
           <div className="game-board">
           
