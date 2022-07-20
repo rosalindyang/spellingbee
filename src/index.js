@@ -29,7 +29,6 @@ fetch(raw)
             for (var j=0; j<lines.length; j++){
                 lines[j] = lines[j].filter(Boolean)
             }
-
         
         }
 
