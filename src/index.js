@@ -4,15 +4,45 @@ import './index.css';
 import raw from './spellingbeewordList.csv';
 
 
+
+var text;
 fetch(raw)
 
         .then(t => t.text()).then(text => {
-            console.log('text', text)
-        })
 
+            var all = text.split(/\r\n|\n/);
+             var headers = all[0].split(',');
+             for (var j=0; j<headers.length; j++) {
+                 var arr = [headers[j]]
+                headers[j] = arr
+            }
+            var lines = headers;
 
-    
+    for (var i=1; i<all.length; i++) {
+        var data = all[i].split(',');
+        if (data.length == headers.length) {
 
+            for (var j=0; j<headers.length; j++) {
+                lines[j].push(data[j].toLowerCase());
+            }
+
+            for (var j=0; j<lines.length; j++){
+                lines[j] = lines[j].filter(Boolean)
+            }
+
+        
+        }
+
+           
+        } console.log(lines)
+    text = lines
+console.log(text)
+console.log(Math.floor(Math.random() * text.length))}
+        )
+       
+console.log('please work', text)
+   // const num = Math.floor(Math.random() * text.length);
+      //  console.log(Math.floor(Math.random() * text.length))
 
 const list = [];
 const letter = 'y';
