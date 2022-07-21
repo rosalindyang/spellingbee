@@ -4,11 +4,10 @@ import './index.css';
 import raw from './spellingbeewordList.csv';
 
 
+ fetch(raw)
 
-var text;
-fetch(raw)
-
-        .then(t => t.text()).then(text => {
+        .then(t => t.text())
+        .then(text => {
 
             var all = text.split(/\r\n|\n/);
              var headers = all[0].split(',');
@@ -34,12 +33,13 @@ fetch(raw)
 
            
         } console.log(lines)
-    text = lines
-console.log(text)
-console.log(Math.floor(Math.random() * text.length))}
-        )
-       
-console.log('please work', text)
+    //text = lines
+    
+//console.log(text)
+console.log(Math.floor(Math.random() * lines.length))})
+
+
+//console.log('please work', text)
    // const num = Math.floor(Math.random() * text.length);
       //  console.log(Math.floor(Math.random() * text.length))
 
