@@ -39,6 +39,9 @@ import raw from './spellingbeewordList.csv';
 console.log(Math.floor(Math.random() * lines.length))})
 
 
+
+
+
 //console.log('please work', text)
    // const num = Math.floor(Math.random() * text.length);
       //  console.log(Math.floor(Math.random() * text.length))
@@ -175,7 +178,7 @@ class Letter extends React.Component {
             this.setState({message:"needs more letters :/"})
         }
         else if(!wordd.includes(letter)){
-            this.setState({message:" missing center letter :("})
+            this.setState({message:"missing center letter :("})
         }
         else if(!wordlist.includes(wordd)){
             this.setState({message:"not a word ......"})
